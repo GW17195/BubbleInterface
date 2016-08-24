@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 String content = inputText.getText().toString();
                 if(!"".equals(content)){
-                    Msg msg=new Msg(content,Msg.TYPE_SEND);
+                    Msg msg=new Msg(R.drawable.head_man,content,Msg.TYPE_SEND);
                     msgList.add(msg);
                     adapter.notifyDataSetChanged();//当有新消息时刷新listview中的显示
                     msgListView.setSelection(msgList.size());//将listview定位到最后一行
@@ -115,11 +115,11 @@ public class MainActivity extends Activity {
     }
 
     private void initMsgs(){
-        Msg msg1=new Msg("Hello guy",Msg.TYPE_RECEIVED);
+        Msg msg1=new Msg(R.drawable.head_robot,"Hello guy",Msg.TYPE_RECEIVED);
         msgList.add(msg1);
-        Msg msg2=new Msg("Hello Who is that?",Msg.TYPE_SEND);
+        Msg msg2=new Msg(R.drawable.head_man,"Hello Who is that?",Msg.TYPE_SEND);
         msgList.add(msg2);
-        Msg msg3=new Msg("This is Tom.Nice talking to you",Msg.TYPE_RECEIVED);
+        Msg msg3=new Msg(R.drawable.head_robot,"This is Tom.Nice talking to you",Msg.TYPE_RECEIVED);
         msgList.add(msg3);
     }
 

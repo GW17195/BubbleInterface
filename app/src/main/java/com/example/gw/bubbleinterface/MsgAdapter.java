@@ -33,6 +33,8 @@ public class MsgAdapter extends ArrayAdapter<Msg>{
            viewHolder.rightLayout=(LinearLayout)view.findViewById(R.id.right_layout);
            viewHolder.leftMsg=(TextView)view.findViewById(R.id.left_msg);
            viewHolder.rightMsg=(TextView)view.findViewById(R.id.right_msg);
+           viewHolder.headRobot=(ImageView)view.findViewById(R.id.head_robot);
+            viewHolder.headMan=(ImageView)view.findViewById(R.id.head_man);
            view.setTag(viewHolder);
         }
         else{
@@ -42,10 +44,12 @@ public class MsgAdapter extends ArrayAdapter<Msg>{
         if(msg.getType()==Msg.TYPE_RECEIVED){
             viewHolder.leftLayout.setVisibility(View.VISIBLE);
             viewHolder.rightLayout.setVisibility(View.GONE);
+            viewHolder.headRobot.setImageResource(msg.getImageId());
             viewHolder.leftMsg.setText(msg.getContent());
         }else if(msg.getType()==Msg.TYPE_SEND){
             viewHolder.leftLayout.setVisibility(View.GONE);
             viewHolder.rightLayout.setVisibility(View.VISIBLE);
+            viewHolder.headMan.setImageResource(msg.getImageId());
             viewHolder.rightMsg.setText(msg.getContent());
         }
         return view;
@@ -55,5 +59,7 @@ public class MsgAdapter extends ArrayAdapter<Msg>{
         LinearLayout rightLayout;
         TextView leftMsg;
         TextView rightMsg;
+        ImageView headMan;
+        ImageView headRobot;
     }
 }
